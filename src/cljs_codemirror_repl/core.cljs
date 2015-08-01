@@ -75,7 +75,7 @@
 
 (defonce codemirror-editor
   (js/CodeMirror. editor-element
-                  #js {:value "(def test-var 1) \n(prn test-var)"
+                  #js {:value "(defn test-function [arg] (println arg))\n\n(test-function \"Hello From ClojureScript!\")"
                        :mode "clojure"
                        :theme "zenburn"}))
 
