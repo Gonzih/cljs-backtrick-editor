@@ -1,0 +1,16 @@
+/* some style */
+#editor {
+    width: 50%;
+    float: left;
+}
+
+#log {
+    width: 49%;
+    float: left;
+    margin-left: 5px;
+}
+
+button {
+    float: left;
+    clear: both;
+}
