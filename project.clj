@@ -29,12 +29,13 @@
              {:id "min"
               :source-paths ["src"]
               :compiler {:output-to "resources/public/js/compiled/cljs_codemirror_repl.js"
-                         :preamble ["resources/public/js/codemirror.js"
-                                    "resources/public/js/clojure.js"
-                                    "resources/public/js/bootstrapns.js"]
+                         :preamble ["public/js/codemirror.js"
+                                    "public/js/clojure.js"
+                                    "public/js/bootstrapns.js"]
                          :main cljs-codemirror-repl.core
                          :optimizations :whitespace
-                         :pretty-print false}}]}
+                         :pretty-print false
+                         :warnings true}}]}
 
   :figwheel {
              ;; :http-server-root "public" ;; default and assumes "resources" 

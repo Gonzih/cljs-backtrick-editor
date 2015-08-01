@@ -1,2 +1,2 @@
-cljs = cljs || {};
+var cljs = cljs || {};
 cljs.user = cljs.user || {};
