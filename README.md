@@ -10,12 +10,6 @@ Execute following script in js console:
 (function() {var el = document.createElement('script'); el.type = 'text/javascript'; el.src = 'https://dl.dropboxusercontent.com/u/4109351/cljs-repl.js'; document.body.appendChild(el); }())
 ````
 
-Or add bookmark with the following url:
-
-```javascript
-javascript:(function() {var el = document.createElement('script'); el.type = 'text/javascript'; el.src = 'https://dl.dropboxusercontent.com/u/4109351/cljs-repl.js'; document.body.appendChild(el); }())
-````
-
 ## Development
 
 To get an interactive development environment run:
