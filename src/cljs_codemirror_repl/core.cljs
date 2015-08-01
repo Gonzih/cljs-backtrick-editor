@@ -1,10 +1,14 @@
 (ns ^:figwheel-always cljs-codemirror-repl.core
+    (:require-macros [cljs-codemirror-repl.macros :refer [read-resource]])
     (:require [cljs.js :as cljs]
               [cljs.tagged-literals :as tags]
               [cljs.tools.reader :as r]
               [cljs.analyzer :as ana]
-              [cljs.compiler :as comp]
-              [cljs-codemirror-repl.sandbox]))
+              [cljs.compiler :as comp]))
+
+(def styles (str (read-resource "resources/public/css/style.css")
+                 (read-resource "resources/public/css/codemirror.css")
+                 (read-resource "resources/public/css/theme/zenburn.css")))
 
 (enable-console-print!)
 
@@ -39,16 +43,17 @@
                        (when error
                          (js/console.error (str error))
                          (log (.-cause error)))
-                       (when value
-                         (log value))
+                       (log value)
                        (prn value)))
       (catch :default e
         (js/console.error e)
         (log e)))))
 
 (defn read-and-eval! []
-  (let [source (.getValue codemirror-editor)]
-    (eval-cljs source)))
+  (let [source (.getValue codemirror-editor)
+        stdout (with-out-str (eval-cljs source))]
+    (log stdout)
+    (js/console.log stdout)))
 
 (defonce main-container
   (let [el (js/document.createElement "div")]
@@ -68,15 +73,6 @@
     (.appendChild main-container el)
     el))
 
-(defonce button-element
-  (let [el (js/document.createElement "input")]
-    (set! (.-type el) "button")
-    (set! (.-value el) "Eval")
-    (set! (.-id el) "eval-button")
-    (set! (.-onclick el) read-and-eval!)
-    (.appendChild main-container el)
-    el))
-
 (defonce codemirror-editor
   (js/CodeMirror. editor-element
                   #js {:value "(def test-var 1) \n(prn test-var)"
@@ -88,3 +84,17 @@
                   #js {:value ""
                        :mode "clojure"
                        :theme "zenburn"}))
+
+(defn inline-styles! []
+  (let [el (js/document.createElement "style")
+        text-node (js/document.createTextNode styles)]
+    (set! (.-type el) "text/css")
+    (set! (.-rel el) "stylesheet")
+    (set! (.-id el) "inlined-styles")
+    (.appendChild el text-node)
+    (.appendChild main-container el)))
+
+(inline-styles!)
+
+(.setOption codemirror-editor "extraKeys"
+            #js {"Ctrl-Enter" read-and-eval!})
