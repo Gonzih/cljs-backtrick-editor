@@ -1,6 +1,6 @@
-# cljs-codemirror-repl
+# cljs-~-editor
 
-Add clojurescript to every page
+Add clojurescript to every page Quake style
 
 ## Usage
 
