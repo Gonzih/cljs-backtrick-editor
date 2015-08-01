@@ -1,12 +1,22 @@
 # cljs-codemirror-repl
 
-FIXME: Write a one-line description of your library/project.
+Add clojurescript to every page
 
-## Overview
+## Usage
 
-FIXME: Write a paragraph about the library/project and highlight its goals.
+Execute following script in js console:
 
-## Setup
+```javascript
+(function() {var el = document.createElement('script'); el.type = 'text/javascript'; el.src = 'https://dl.dropboxusercontent.com/u/4109351/cljs-repl.js'; document.body.appendChild(el); }())
+````
+
+Or add bookmark with the following url:
+
+```javascript
+javascript:(function() {var el = document.createElement('script'); el.type = 'text/javascript'; el.src = 'https://dl.dropboxusercontent.com/u/4109351/cljs-repl.js'; document.body.appendChild(el); }())
+````
+
+## Development
 
 To get an interactive development environment run:
 
@@ -34,6 +44,6 @@ get live reloading, nor a REPL.
 
 ## License
 
-Copyright © 2014 FIXME
+Copyright © 2015 Max Gonzih <gonzih at gmail dot com>
 
 Distributed under the Eclipse Public License either version 1.0 or (at your option) any later version.
