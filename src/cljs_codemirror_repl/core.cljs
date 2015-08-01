@@ -81,7 +81,7 @@
 
 (defonce codemirror-log
   (js/CodeMirror. log-element
-                  #js {:value ""
+                  #js {:value "; log output goes here"
                        :mode "clojure"
                        :theme "zenburn"}))
 
@@ -98,3 +98,19 @@
 
 (.setOption codemirror-editor "extraKeys"
             #js {"Ctrl-Enter" read-and-eval!})
+
+(defonce container-expanded (atom false))
+
+(defn toggle-container-class! []
+  (swap! container-expanded not)
+  (if @container-expanded
+    (set! (.-className main-container) "")
+    (set! (.-className main-container) "collapsed")))
+
+(defn bind-keypress! []
+  (set! (.-onkeypress js/document)
+        (fn [event]
+          (when (= 36 (.-keyCode event))
+            (toggle-container-class!)))))
+
+(bind-keypress!)
