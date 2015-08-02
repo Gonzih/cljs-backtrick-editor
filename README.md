@@ -9,7 +9,7 @@ Add clojurescript to every page Quake style
 Execute following script in js console:
 
 ```javascript
-(function() {var el = document.createElement('script'); el.type = 'text/javascript'; el.src = 'http://blog.gonzih.me/cljs-tilda-editor/cljs-repl.js'; document.body.appendChild(el); }())
+(function() {var el = document.createElement('script'); el.type = 'text/javascript'; el.src = 'http://blog.gonzih.me/cljs-backtrick-editor/cljs-repl.js'; document.body.appendChild(el); }())
 ````
 
 Press ` to hide/expand editor.
