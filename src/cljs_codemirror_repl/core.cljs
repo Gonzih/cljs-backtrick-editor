@@ -63,13 +63,13 @@
 
 (defonce editor-element
   (let [el (js/document.createElement "div")]
-    (set! (.-id el) "editor")
+    (set! (.-id el) "cljs-editor")
     (.appendChild main-container el)
     el))
 
 (defonce log-element
   (let [el (js/document.createElement "div")]
-    (set! (.-id el) "log")
+    (set! (.-id el) "cljs-log")
     (.appendChild main-container el)
     el))
 

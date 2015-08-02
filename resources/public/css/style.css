@@ -1,18 +1,13 @@
 /* some style */
-#editor {
+#cljs-editor {
     width: 50%;
     float: left;
 }
 
-#log {
+#cljs-log {
     width: 49%;
     float: left;
     margin-left: 5px;
-}
-
-button {
-    float: left;
-    clear: both;
 }
 
 #cljs-container {
