@@ -123,7 +123,7 @@
 (defn bind-keypress! []
   (set! (.-onkeypress js/document)
         (fn [event]
-          (when (= 126 (.-keyCode event))
+          (when (= 96 (.-keyCode event))
             (toggle-container-class!)))))
 
 (bind-keypress!)
