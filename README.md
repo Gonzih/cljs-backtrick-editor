@@ -1,4 +1,4 @@
-# cljs-~-editor
+# cljs-`-editor
 
 Add clojurescript to every page Quake style
 
