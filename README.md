@@ -2,6 +2,8 @@
 
 Add clojurescript to every page Quake style
 
+![demo](demo.gif)
+
 ## Usage
 
 Execute following script in js console:
