@@ -7,7 +7,7 @@ Add clojurescript to every page Quake style
 Execute following script in js console:
 
 ```javascript
-(function() {var el = document.createElement('script'); el.type = 'text/javascript'; el.src = 'https://dl.dropboxusercontent.com/u/4109351/cljs-repl.js'; document.body.appendChild(el); }())
+(function() {var el = document.createElement('script'); el.type = 'text/javascript'; el.src = 'http://blog.gonzih.me/cljs-tilda-editor/cljs-repl.js'; document.body.appendChild(el); }())
 ````
 
 ## Development
