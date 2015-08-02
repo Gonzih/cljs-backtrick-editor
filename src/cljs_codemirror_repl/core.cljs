@@ -112,7 +112,7 @@
 (.setOption codemirror-editor "extraKeys"
             #js {"Ctrl-Enter" read-and-eval!})
 
-(defonce container-expanded (atom false))
+(defonce container-expanded (atom true))
 
 (defn toggle-container-class! []
   (swap! container-expanded not)
