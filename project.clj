@@ -35,6 +35,7 @@
                          :main cljs-codemirror-repl.core
                          :optimizations :whitespace
                          :pretty-print false
+                         :static-fns true
                          :warnings true}}]}
 
   :figwheel {
