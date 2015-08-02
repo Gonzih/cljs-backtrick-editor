@@ -12,7 +12,7 @@ Execute following script in js console:
 (function() {var el = document.createElement('script'); el.type = 'text/javascript'; el.src = 'http://blog.gonzih.me/cljs-tilda-editor/cljs-repl.js'; document.body.appendChild(el); }())
 ````
 
-Press `\`` to hide/expand editor.
+Press ````` to hide/expand editor.
 
 ## Development
 
