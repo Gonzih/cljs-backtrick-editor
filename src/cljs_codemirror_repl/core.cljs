@@ -12,6 +12,8 @@
 
 (enable-console-print!)
 
+(def localstorage-key "cljs-tilda-editor-last-snippet")
+
 (defn on-js-reload [])
 
 (defonce st (cljs/empty-state))
@@ -49,11 +51,18 @@
         (js/console.error e)
         (log e)))))
 
+(defn store-in-localstorage! [source]
+  (js/localStorage.setItem localstorage-key source))
+
+(defn get-from-localstorage! []
+  (js/localStorage.getItem localstorage-key))
+
 (defn read-and-eval! []
   (let [source (.getValue codemirror-editor)
         stdout (with-out-str (eval-cljs source))]
     (log stdout)
-    (js/console.log stdout)))
+    (js/console.log stdout)
+    (store-in-localstorage! source)))
 
 (defonce main-container
   (let [el (js/document.createElement "div")]
@@ -73,9 +82,13 @@
     (.appendChild main-container el)
     el))
 
+(defn initial-editor-value! []
+  (or (get-from-localstorage!)
+      "(defn test-function [arg] (println arg))\n\n(test-function \"Hello From ClojureScript!\")"))
+
 (defonce codemirror-editor
   (js/CodeMirror. editor-element
-                  #js {:value "(defn test-function [arg] (println arg))\n\n(test-function \"Hello From ClojureScript!\")"
+                  #js {:value (initial-editor-value!)
                        :mode "clojure"
                        :theme "zenburn"}))
 
