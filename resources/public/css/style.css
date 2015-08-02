@@ -12,11 +12,12 @@
 
 #cljs-container {
     position: absolute;
-    left: 5px;
-    width: 95%;
+    left: 1%;
+    width: 99%;
     height: 50%;
     top: 5px;
     transition: top 1s ease-in-out;
+    box-sizing: border-box;
 }
 
 #cljs-container.collapsed {
